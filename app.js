@@ -368,7 +368,10 @@ function render() {
 // ==== HEADER ====
 function renderHeader() {
   const header = document.createElement('header');
-  header.className = 'w-full sticky top-0 z-50 bg-surface/90 backdrop-blur-md flex justify-between items-center px-6 py-4 border-b border-outline shadow-sm';
+  header.className = 'w-full sticky top-0 z-50 bg-surface/90 backdrop-blur-md flex justify-between items-center px-6 border-b border-outline shadow-sm';
+  // スマホのノッチ・カメラ部分（Safe Area）との被りを防ぐための最適化
+  header.style.paddingTop = 'max(env(safe-area-inset-top), 16px)';
+  header.style.paddingBottom = '16px';
 
   const isDeep = ['detail', 'add', 'edit'].includes(state.currentView);
   
@@ -881,7 +884,9 @@ function renderSettingsView() {
 // ==== BOTTOM NAV ====
 function renderBottomNav() {
   const nav = document.createElement('nav');
-  nav.className = 'fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2.5 bg-surface/90 backdrop-blur-md border-t border-outline shadow-[0px_-4px_20px_rgba(0,0,0,0.02)] z-50';
+  nav.className = 'fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-2.5 bg-surface/90 backdrop-blur-md border-t border-outline shadow-[0px_-4px_20px_rgba(0,0,0,0.02)] z-50';
+  // スマホ下部のホームバー（Home Indicator）と被らないための最適化
+  nav.style.paddingBottom = 'max(env(safe-area-inset-bottom), 24px)';
   
   nav.innerHTML = `
     <button class="flex flex-col items-center justify-center tap-highlight-transparent px-3 py-1 rounded-md transition-all active:scale-95 ${state.currentView === 'list' ? 'text-primary' : 'text-text-sub hover:text-on-surface'}" data-nav="list">
