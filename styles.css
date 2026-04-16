@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --surface: #f9f9f7;
+  --surface-container-low: #f2f4f2;
+  --surface-container-lowest: #ffffff;
+  --outline-variant: #adb3b0;
+  --primary: #615e57;
+  --primary-dim: #55524c;
+  --on-surface: #2d3432;
+  --on-surface-variant: #6b7280;
+  --on-primary: #ffffff;
+  --surface-container-high: #e5e7eb; /* Approximated for Secondary Button */
+
+  /* Pastel Status Colors */
+  --tertiary-container: #fff4e6;
+  --on-tertiary-container: #c45a11;
+  --error-container: #fee2e2;
+  --on-error-container: #b91c1c;
+  --primary-container: #d1fae5;
+  --on-primary-container: #047857;
+  
+  --shadow-ambient: 0px 4px 20px rgba(45, 52, 50, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo", sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+  line-height: 1.6;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.display-md {
+  font-size: 2.25rem;
+  margin: 2rem 0;
+}
+
+.headline-lg {
+  font-size: 1.875rem;
+  margin: 1.5rem 0;
+  font-weight: 400;
+}
+
+.body-md {
+  font-size: 14px;
+}
+
+.label-md {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--on-surface-variant);
+  text-transform: uppercase;
+}
+
+/* Layout */
+.sidebar {
+  width: 260px;
+  background-color: var(--surface-container-low);
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main-content {
+  flex: 1;
+  background-color: var(--surface);
+  padding: 3rem 4rem;
+  overflow-y: auto;
+}
+
+/* Groupings and Cards */
+.card {
+  background-color: var(--surface-container-lowest);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-ambient);
+  margin-bottom: 24px;
+}
+
+.card:hover {
+  /* Subtle interaction */
+}
+
+/* Components - Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dim) 100%);
+  color: var(--on-primary);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(45, 52, 50, 0.1);
+}
+
+.btn-primary:active {
+  background: var(--primary-dim);
+}
+
+.btn-secondary {
+  background-color: var(--surface-container-low);
+  color: var(--on-surface);
+  border-radius: 8px;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e6e5;
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--on-surface-variant);
+}
+
+.btn-tertiary:hover {
+  text-decoration: underline;
+  color: var(--on-surface);
+}
+
+/* Inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.input-field {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(173, 179, 176, 0.2); /* Ghost Border */
+  padding: 0.75rem 0;
+  font-size: 14px;
+  color: var(--on-surface);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.input-field:focus {
+  outline: none;
+  background-color: var(--surface-container-lowest);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 12px rgba(97, 94, 87, 0.02);
+  border-bottom: 1px solid var(--primary);
+  padding-left: 0.5rem;
+}
+
+.input-field::placeholder {
+  color: var(--outline-variant);
+}
+
+/* Status Pills */
+.status {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-pending {
+  background-color: var(--tertiary-container);
+  color: var(--on-tertiary-container);
+}
+
+.status-error {
+  background-color: var(--error-container);
+  color: var(--on-error-container);
+}
+
+.status-success {
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+/* Tables (Lists) */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Replacing horizontal rules with whitespace */
+}
+
+.list-header {
+  display: flex;
+  padding: 8px 16px;
+  color: var(--on-surface-variant);
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.list-row:hover {
+  background-color: var(--surface-container-low);
+}
+
+.col {
+  flex: 1;
+}
+.col.narrow {
+  flex: 0.5;
+}
+.col.wide {
+  flex: 2;
+}
+
+/* Glassmorphism Map/Modal overlay */
+.glass-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 2.5rem;
+  background-color: rgba(249, 249, 247, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  box-shadow: var(--shadow-ambient);
+  display: none;
+  z-index: 10;
+}
+
+.glass-panel.active {
+  display: block;
+}
+
+/* Utilities */
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mt-2 { margin-top: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+
+/* Ghost border fallback example */
+.ghost-border {
+  border: 1px solid rgba(173, 179, 176, 0.15);
+}
+
+/* Sidebar nav items */
+.nav-item {
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: var(--surface);
+  color: var(--on-surface);
+}
